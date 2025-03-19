@@ -38,5 +38,5 @@ A step-by-step implementation of **Time-Based One-Time Password (TOTP)** MFA usi
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/spring-boot-mfa-example.git
-cd spring-boot-mfa-example
+git clone https://github.com/shaheerakhlaq/mfa.git
+cd mfa

@@ -1,16 +1,16 @@
-#Title: Implementing Multi-Factor Authentication (MFA) in Spring Boot with Spring Security
+## Title: Implementing Multi-Factor Authentication (MFA) in Spring Boot with Spring Security
 
 Introduction In today’s digital world, securing user accounts is more critical than ever. Multi-Factor Authentication (MFA) provides an extra layer of security by requiring users to verify their identity using multiple methods, such as passwords and one-time passwords (OTPs). In this article, we will explore how to implement MFA in a Spring Boot application using Spring Security.
 
-1. Understanding MFA
+## 1. Understanding MFA
 Multi-Factor Authentication (MFA) enhances security by requiring at least two of the following authentication factors:
-•	Something You Know – A password or PIN.
-•	Something You Have – A mobile device, security key, or authentication app.
-•	Something You Are – Biometrics like fingerprints or facial recognition.
+* Something You Know – A password or PIN.
+* Something You Have – A mobile device, security key, or authentication app.
+* Something You Are – Biometrics like fingerprints or facial recognition.
 
 MFA prevents unauthorized access even if credentials are compromised.
 
-3. Setting Up Spring Boot and Spring Security
+## 2. Setting Up Spring Boot and Spring Security
 Start by setting up a Spring Boot project with the necessary dependencies in pom.xml:
 ```
 <dependency>
@@ -53,9 +53,9 @@ public class SecurityConfig {
 }
 ```
 
-3. Implementing MFA with OTP
+## 3. Implementing MFA with OTP
 
-Step 1: User Entity with MFA Fields
+### Step 1: User Entity with MFA Fields
 
 ```
 @Entity
@@ -71,7 +71,7 @@ public class User {
 }
 ```
 
-Step 2: Generate and Validate OTPs
+### Step 2: Generate and Validate OTPs
 
 Use the Time-Based One-Time Password (TOTP) algorithm:
 
@@ -86,7 +86,7 @@ public class OTPUtil {
 }
 ```
 
-Step 3: Implement MFA in Login Flow
+### Step 3: Implement MFA in Login Flow
 
 ```
 @PostMapping("/login")
@@ -102,7 +102,7 @@ public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 }
 ```
 
-Step 4: Verify OTP Before Granting Access
+### Step 4: Verify OTP Before Granting Access
 
 ```
 @PostMapping("/verify-otp")
@@ -116,13 +116,13 @@ public ResponseEntity<?> verifyOtp(@RequestBody OtpRequest otpRequest) {
 }
 ```
 
-4. Enhancing MFA Security
-•	Use Twilio API for SMS-based OTPs.
-•	Integrate with Google Authenticator.
-•	Store and encrypt MFA preferences securely.
-•	Use JWT for secure session management.
+### 4. Enhancing MFA Security
+* Use Twilio API for SMS-based OTPs.
+* Integrate with Google Authenticator.
+* Store and encrypt MFA preferences securely.
+* Use JWT for secure session management.
 
-Conclusion
+## Conclusion
 
 Implementing MFA in Spring Boot enhances security and protects user accounts from unauthorized access. By combining Spring Security with OTP-based authentication, we can build a secure and scalable authentication system.
 Would you like to see additional features like biometric authentication or WebAuthn integration? Let me know in the comments!
